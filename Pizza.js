@@ -30,3 +30,30 @@ const pizzaPolloChampinones = new Pizza ('Masa delgada', 'Grande',['Queso', 'Pol
 console.log(pizzaPolloChampinones.preparar());
 console.log(pizzaPolloChampinones.hornear());
 console.log(pizzaPolloChampinones.empacar());
+
+//HERENCIA
+
+class Combos extends Pizza{
+    constructor(combo, cantidad, tamano, masa, ingredientes, bebida, postre){
+        super(tamano, masa, ingredientes);
+        this.combo=combo;
+        this.cantidad=cantidad;
+        this.bebida=bebida;
+        this.postre=postre;
+    }
+
+    //MÉTODOS
+    elegirCombo(){
+        this.preparar();
+        this.hornear();
+        this.empacar();
+
+        console.log(`Pedido: Combo ${this.combo} - ${this.cantidad} Pizza${this.porciones}, ${this.masa}, ${this.ingredientes} + ${this.bebida} + ${this.postre}`);
+        return this;
+    }
+
+}
+
+const Pedido = new Combos ('Personasl', 1, 'Mediana', 'Masa tradicional', ['Queso', 'Pepperoni'], 'Coca -cola grande', 'Rollitos de canela', 1);
+
+console.log(Pedido.elegirCombo());
